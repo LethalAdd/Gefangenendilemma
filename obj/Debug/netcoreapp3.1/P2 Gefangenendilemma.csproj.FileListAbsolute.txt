@@ -1,0 +1,13 @@
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/bin/Debug/netcoreapp3.1/P2 Gefangenendilemma
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/bin/Debug/netcoreapp3.1/P2 Gefangenendilemma.deps.json
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/bin/Debug/netcoreapp3.1/P2 Gefangenendilemma.runtimeconfig.json
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/bin/Debug/netcoreapp3.1/P2 Gefangenendilemma.runtimeconfig.dev.json
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/bin/Debug/netcoreapp3.1/P2 Gefangenendilemma.dll
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/bin/Debug/netcoreapp3.1/P2 Gefangenendilemma.pdb
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.csprojAssemblyReference.cache
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.AssemblyInfoInputs.cache
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.AssemblyInfo.cs
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.csproj.CoreCompileInputs.cache
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.dll
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.pdb
+/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/Debug/netcoreapp3.1/P2 Gefangenendilemma.genruntimeconfig.cache

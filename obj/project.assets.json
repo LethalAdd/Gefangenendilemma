@@ -1,0 +1,69 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": []
+  },
+  "packageFolders": {
+    "/home/smueller/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/P2 Gefangenendilemma.csproj",
+      "projectName": "P2 Gefangenendilemma",
+      "projectPath": "/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/P2 Gefangenendilemma.csproj",
+      "packagesPath": "/home/smueller/.nuget/packages/",
+      "outputPath": "/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/smueller/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.2, 3.1.2]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.300/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

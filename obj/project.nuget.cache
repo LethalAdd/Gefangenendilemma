@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cOJl+fDvk5V6egMgBHm7abWZ5/Y0WKvSGgVu8WsxylY0FC/RxNzoXiIX6EvRGOpUfu+qCxMz3QCjYeqx+bbOgQ==",
+  "success": true,
+  "projectFilePath": "/home/smueller/PhpstormProjects/C#Projects/P2 Gefangenendilemma/P2 Gefangenendilemma.csproj",
+  "expectedPackageFiles": [
+    "/home/smueller/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.2/microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
