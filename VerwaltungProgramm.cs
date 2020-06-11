@@ -5,7 +5,17 @@ using Gefangenendilemma.Basis;
 namespace Gefangenendilemma
 {
     /// <summary>
-    /// Diese Klasse können Sie beliebig umschreiben, jenachdem welche Tasks sie erledigen.
+    /// Diese Klasse können Sie beliebig umschreiben, jenachdem welche Tasks sie erledigen. 
+    ///Erledigte Task:
+    ///S1-2: +30 (je +15) für eine eigene Strategie pro Gruppenmitglied (bei 2 Gruppenmitgliern) Dazu einfach die Strategie1-2 mit Leben füllen.
+    ///B1: +15 Eine ihrer Strategie schlägt die Verrate immer Strategie (Wenn Sie die Aufgabe machen, geben Sie an, welche Strategie, wieviele Runden und die Art des Verstoßes)
+    ///B2: +15 Eine ihre Strategie schlägt die Groll Strategie (Wenn Sie die Aufgabe machen, geben Sie an, welche Strategie, wieviele Runden und die Art des Verstoßes)
+    ///P3: +5 Kommentieren Sie ihre komplexen Codeabschnitte und Methoden C# konform
+    ///E1: +10 Ergänzung, dass auch leichte und mittlere Schwere im Programm gespielt werden können.
+    ///E2: +10 Neue Funktion, dass 2 Strategien die 9 Spiele gegenander spielen und dann erst der Sieger gekürt wird.
+    ///E3: +10 Neue Funktion, die ermittelt, ab welcher Rundenzahl gewinnt die eine Strategie zuverlässig.
+    ///R1: +10 Sie haben im Team ein Reposity verwendet, also jedes Teammitglied hat mehr als 2 Commits gemacht.
+    
     /// </summary>
     class VerwaltungProgramm
     {
@@ -154,7 +164,7 @@ namespace Gefangenendilemma
                 siegerStehtFest = false;
 
             //ausgabe   
-            
+
                 if (punkte1 < punkte2)
                 {
                     Console.WriteLine($"{strategie1.Name()} hat {punkte1} Punkte erhalten.");
