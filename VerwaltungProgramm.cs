@@ -41,7 +41,6 @@ namespace Gefangenendilemma
                 switch (eingabe.ToLower())
                 {
                     case "0":
-                    Console.WriteLine("Blub");
                         Gefangene2();
                         break;
                     case "X":
@@ -60,7 +59,8 @@ namespace Gefangenendilemma
         static void Gefangene2()
         {
             int st1, st2;
-            int runde, schwere;
+            int schwere, runde;
+            int anzahlSpiele = 9;
             
             Console.WriteLine("Willkommen zum Verhör zwischen 2 Strategien");
             for (int i = 0; i < _strategien.Count; i++)
@@ -73,7 +73,7 @@ namespace Gefangenendilemma
             runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);
             schwere = VerwaltungKram.EingabeZahlMinMax("Wie schwer sind die Verstöße? (2=schwer)", 2, 3);
             
-            Verhoer(st1, st2, runde, schwere);
+            Verhoer(st1, st2, anzahlSpiele, runde, schwere);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Gefangenendilemma
         /// <param name="st2"></param>
         /// <param name="runde"></param>
         /// <param name="schwere"></param>
-        static void Verhoer(int st1, int st2, int runde, int schwere)
+        static void Verhoer(int st1, int st2, int anzahlSpiele, int runde, int schwere)
         {
             //holt die beiden Strategien aus der Collection.
             BasisStrategie strategie1 = _strategien[st1];
@@ -101,24 +101,43 @@ namespace Gefangenendilemma
             Console.WriteLine($"Verhör zwischen {strategie1.Name()} und {strategie2.Name()} für {runde} Runden.");
             
             //start
-            for (int i = 0; i < runde; i++)
-            {
-                //beide verhören
-                int aktReaktion1 = strategie1.Verhoer(reaktion2);
-                int aktReaktion2 = strategie2.Verhoer(reaktion1);
+            int anzahlGewonneneSpieleStrat1 = 0;
+            int anzahlGewonneneSpieleStrat2 = 0;
 
-                //punkte berechnen
-                VerhoerSchwerPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+            for (int i = 0; i < anzahlSpiele; i++)
+            {
+                for (int j = 0; j < runde; j++)
+                {
+                    //beide verhören
+                    int aktReaktion1 = strategie1.Verhoer(reaktion2);
+                    int aktReaktion2 = strategie2.Verhoer(reaktion1);
+
+                    //punkte berechnen
+                    VerhoerSchwerPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+                    
+                    //reaktion für den nächsten durchlauf merken
+                    reaktion1 = aktReaktion1;
+                    reaktion2 = aktReaktion2;
+                }
                 
-                //reaktion für den nächsten durchlauf merken
-                reaktion1 = aktReaktion1;
-                reaktion2 = aktReaktion2;
+                if (punkte1 < punkte2)
+                {
+                    Console.WriteLine("Somit hat {0} Spiel nr {1} gewonnen.", strategie1.Name(), i+1);
+                    anzahlGewonneneSpieleStrat1++;
+                } 
+                else
+                {
+                    Console.WriteLine("Somit hat {0} Spiel nr {1} gewonnen.", strategie2.Name(), i+1);
+                    anzahlGewonneneSpieleStrat2++;
+                }
+                punkte1 = 0;
+                punkte2 = 0;
             }
             
             //ausgabe
-            Console.WriteLine($"{strategie1.Name()} hat {punkte1} Punkte erhalten.");
-            Console.WriteLine($"{strategie2.Name()} hat {punkte2} Punkte erhalten.");
-            if (punkte1 < punkte2)
+            Console.WriteLine($"{strategie1.Name()} hat {anzahlGewonneneSpieleStrat1} Spiele gewonnen.");
+            Console.WriteLine($"{strategie2.Name()} hat {anzahlGewonneneSpieleStrat2} Spiele gewonnen.");
+            if (anzahlGewonneneSpieleStrat1 > anzahlGewonneneSpieleStrat2)
             {
                 Console.WriteLine("Somit hat {0} gewonnen.", strategie1.Name());
             } 

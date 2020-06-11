@@ -13,7 +13,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Name()
         {
-            return "Bitte anpassen";
+            return "Freundschaft";
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Autor()
         {
-            return "Bitte anpassen";
+            return "Firat";
         }
 
         /// <summary>
@@ -42,9 +42,7 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
-            //Strategie hier ergänzen
-
-            return Verrat;
+            return 0;
         }
     }
 }

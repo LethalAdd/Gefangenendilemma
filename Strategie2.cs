@@ -4,13 +4,15 @@ namespace Gefangenendilemma
 {
     public class Strategie2 : BasisStrategie
     {
+
+    public int letzteAktion = -1;
         /// <summary>
         /// Gibt den Namen der Strategie zurück, wichtig zum Anzeigen für die Auswahl
         /// </summary>
         /// <returns></returns>
         public override string Name()
         {
-            return "Bitte anpassen";
+            return "LeathalAdd";
         }
 
         /// <summary>
@@ -19,7 +21,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Autor()
         {
-            return "Bitte anpassen";
+            return "Sascha + Firat";
         }
 
         /// <summary>
@@ -39,9 +41,31 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
-            //Strategie hier ergänzen
+            int aktion = this.letzteAktion;
 
-            return Verrat;
+            if(this.letzteAktion == -1)
+            {
+                this.letzteAktion = 0;
+                return 0;
+            }
+
+            else if(aktion != letzteReaktion)
+            {
+                 if(letzteReaktion == 1)
+                 {
+                     this.letzteAktion = 0;
+                     return 0;
+                 }
+                 else
+                 {
+                     this.letzteAktion = 1;
+                     return 1;
+                 }
+            }
+		    else 
+            {
+                return this.letzteAktion;
+            }
         }
     }
 }
