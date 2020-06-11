@@ -3,7 +3,8 @@ using Gefangenendilemma.Basis;
 namespace Gefangenendilemma
 {
     /// <summary>
-    /// Nur nutzen, wenn es ein 3. Gruppenmitglied gibt.
+    /// Firats Strategie
+    ///verattet nie!
     /// </summary>
     public class Strategie3 : BasisStrategie
     {

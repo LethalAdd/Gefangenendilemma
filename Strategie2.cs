@@ -1,10 +1,14 @@
 using Gefangenendilemma.Basis;
 
+/// <summary>
+/// Pavlovs Strategie
+/// Implementations von Pavlovs Strategie
+/// Wechselt Strategie wenn Gegner Wechselt
+/// </summary>
 namespace Gefangenendilemma
 {
     public class Strategie2 : BasisStrategie
     {
-
     public int letzteAktion = -1;
     public int schwere;
         /// <summary>

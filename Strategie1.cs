@@ -4,11 +4,8 @@ using Gefangenendilemma.Basis;
 namespace Gefangenendilemma
 {
     /// <summary>
-    /// Strategie für das 1. Gruppenmitglied. 
-    /// 1. Tragen Sie in der Name() Methode den Namen ihrer Strategie ein. 
-    /// 2. Tragen Sie in der Autor() Methode ihren Namen ein. 
-    /// 3. Schreiben Sie in Verhoer() ihre Strategie, über die Start() Methode erhalten Sie allgemeine Informationen zum Durchlauf. 
-    /// Sie können gerne weitere Methoden, Variablen ergänzen, aber passen Sie nicht das 
+    /// Saschas Strategie
+    /// Wählt frei nach Zufall aus
     /// </summary>
     public class Strategie1 : BasisStrategie
     {

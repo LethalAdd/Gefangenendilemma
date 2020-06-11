@@ -152,7 +152,9 @@ namespace Gefangenendilemma
                     }
                 }
                 siegerStehtFest = false;
-                
+
+            //ausgabe   
+            
                 if (punkte1 < punkte2)
                 {
                     Console.WriteLine($"{strategie1.Name()} hat {punkte1} Punkte erhalten.");
@@ -171,10 +173,9 @@ namespace Gefangenendilemma
                 punkte2 = 0;
             }
             
-            //ausgabe
             if(siegerStehtFestInRunde == 0)
             {
-                 Console.WriteLine("Sieger konnte nicht ermittelt werden");
+                 Console.WriteLine("Sieger konnte nicht zuverlässig ermittelt werden");
             }
             
             else
@@ -196,7 +197,7 @@ namespace Gefangenendilemma
         }
 
         /// <summary>
-        /// Berechnet für schwere Verstöße die Punkte und verwendet die 2 letzten Eingabeparameter als Rückgabe
+        /// Berechnet für leichte Verstöße die Punkte und verwendet die 2 letzten Eingabeparameter als Rückgabe
         /// </summary>
         /// <param name="aktReaktion1"></param>
         /// <param name="aktReaktion2"></param>
@@ -226,7 +227,7 @@ namespace Gefangenendilemma
             punkte1 += 6;
             punkte2 += 6;
         }
-
+        /// Berechnet für mittleren Verstöße die Punkte und verwendet die 2 letzten Eingabeparameter als Rückgabe
         /// <param name="aktReaktion1"></param>
         /// <param name="aktReaktion2"></param>
         /// <param name="punkte1"></param>
@@ -256,6 +257,7 @@ namespace Gefangenendilemma
             punkte2 += 4;
         }
 
+        /// Berechnet für schwere Verstöße die Punkte und verwendet die 2 letzten Eingabeparameter als Rückgabe
         /// <param name="aktReaktion1"></param>
         /// <param name="aktReaktion2"></param>
         /// <param name="punkte1"></param>
