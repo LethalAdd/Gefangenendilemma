@@ -113,7 +113,19 @@ namespace Gefangenendilemma
                     int aktReaktion2 = strategie2.Verhoer(reaktion1);
 
                     //punkte berechnen
-                    VerhoerSchwerPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+                    switch (schwere)
+                    {
+                        case 0:
+                            VerhoerLeichtPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+                            break;
+                        case 1:
+                            VerhoerMittelPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+                            break;
+                        default:
+                            VerhoerSchwerPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
+                            break;
+                    }
+                    
                     
                     //reaktion für den nächsten durchlauf merken
                     reaktion1 = aktReaktion1;

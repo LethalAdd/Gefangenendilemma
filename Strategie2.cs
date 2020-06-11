@@ -6,13 +6,14 @@ namespace Gefangenendilemma
     {
 
     public int letzteAktion = -1;
+    public int schwere;
         /// <summary>
         /// Gibt den Namen der Strategie zurück, wichtig zum Anzeigen für die Auswahl
         /// </summary>
         /// <returns></returns>
         public override string Name()
         {
-            return "LeathalAdd";
+            return "Pavlovs";
         }
 
         /// <summary>
@@ -31,7 +32,7 @@ namespace Gefangenendilemma
         /// <param name="schwere">Schwere des Verbrechen (VLeicht = 0, VMittel = 1, VSchwer = 2)</param>
         public override void Start(int runde, int schwere)
         {
-            //Vorbereitungen für Start
+           this.schwere = schwere;
         }
 
         /// <summary>
@@ -43,28 +44,36 @@ namespace Gefangenendilemma
         {
             int aktion = this.letzteAktion;
 
-            if(this.letzteAktion == -1)
+            if(this.schwere == 1)
             {
-                this.letzteAktion = 0;
-                return 0;
+                return 1;
             }
+            
+            else
+            {
+                if(this.letzteAktion == -1)
+                {
+                    this.letzteAktion = 0;
+                    return 0;
+                }
 
-            else if(aktion != letzteReaktion)
-            {
-                 if(letzteReaktion == 1)
-                 {
-                     this.letzteAktion = 0;
-                     return 0;
-                 }
-                 else
-                 {
-                     this.letzteAktion = 1;
-                     return 1;
-                 }
-            }
-		    else 
-            {
-                return this.letzteAktion;
+                else if(this.letzteAktion != letzteReaktion)
+                {
+                    if(letzteReaktion == 1)
+                    {
+                        this.letzteAktion = 1;
+                        return 1;
+                    }
+                    else
+                    {
+                        this.letzteAktion = 0;
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }

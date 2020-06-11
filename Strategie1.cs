@@ -3,7 +3,6 @@ using Gefangenendilemma.Basis;
 
 namespace Gefangenendilemma
 {
-
     /// <summary>
     /// Strategie für das 1. Gruppenmitglied. 
     /// 1. Tragen Sie in der Name() Methode den Namen ihrer Strategie ein. 
@@ -13,6 +12,7 @@ namespace Gefangenendilemma
     /// </summary>
     public class Strategie1 : BasisStrategie
     {
+        public int schwere;
 
         /// <summary>
         /// Gibt den Namen der Strategie zurück, wichtig zum Anzeigen für die Auswahl
@@ -39,7 +39,7 @@ namespace Gefangenendilemma
         /// <param name="schwere">Schwere des Verbrechen (VLeicht = 0, VMittel = 1, VSchwer = 2)</param>
         public override void Start(int runde, int schwere)
         {
-            //Vorbereitungen für Start
+            this.schwere = schwere;
         }
 
         /// <summary>
@@ -49,8 +49,14 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
+            if(this.schwere == 1)
+            {
+                return 1;
+            }
             Random rnd = new Random();
-            return rnd.Next(0, 1);
+            int randNr = rnd.Next(0, 2);
+            Console.WriteLine("Blub");
+            return randNr;
         }
     }
 }
