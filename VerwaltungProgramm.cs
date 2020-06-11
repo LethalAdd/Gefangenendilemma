@@ -71,7 +71,7 @@ namespace Gefangenendilemma
             st1 = VerwaltungKram.EingabeZahlMinMax("Wählen Sie die 1. Strategie", 0, _strategien.Count);
             st2 = VerwaltungKram.EingabeZahlMinMax("Wählen Sie die 2. Strategie", 0, _strategien.Count);
             runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);
-            schwere = VerwaltungKram.EingabeZahlMinMax("Wie schwer sind die Verstöße? (2=schwer)", 2, 3);
+            schwere = VerwaltungKram.EingabeZahlMinMax("Wie schwer sind die Verstöße? (0=Leicht,1=Mittel,2=schwer)", 0, 3);
             
             Verhoer(st1, st2, anzahlSpiele, runde, schwere);
         }
@@ -122,11 +122,15 @@ namespace Gefangenendilemma
                 
                 if (punkte1 < punkte2)
                 {
+                    Console.WriteLine($"{strategie1.Name()} hat {punkte1} Punkte erhalten.");
+                    Console.WriteLine($"{strategie2.Name()} hat {punkte2} Punkte erhalten.");
                     Console.WriteLine("Somit hat {0} Spiel nr {1} gewonnen.", strategie1.Name(), i+1);
                     anzahlGewonneneSpieleStrat1++;
                 } 
                 else
                 {
+                    Console.WriteLine($"{strategie1.Name()} hat {punkte1} Punkte erhalten.");
+                    Console.WriteLine($"{strategie2.Name()} hat {punkte2} Punkte erhalten.");
                     Console.WriteLine("Somit hat {0} Spiel nr {1} gewonnen.", strategie2.Name(), i+1);
                     anzahlGewonneneSpieleStrat2++;
                 }
@@ -155,6 +159,64 @@ namespace Gefangenendilemma
         /// <param name="aktReaktion2"></param>
         /// <param name="punkte1"></param>
         /// <param name="punkte2"></param>
+        static void VerhoerLeichtPunkte(int aktReaktion1, int aktReaktion2, ref int punkte1, ref int punkte2)
+        {
+            if (aktReaktion1 == BasisStrategie.Kooperieren && aktReaktion2 == BasisStrategie.Kooperieren)
+            {
+                punkte1 += 3;
+                punkte2 += 3;
+                return;
+            } 
+            if (aktReaktion1 == BasisStrategie.Verrat && aktReaktion2 == BasisStrategie.Kooperieren)
+            {
+                punkte1 += 0;
+                punkte2 += 9;
+                return;
+            }
+            if (aktReaktion1 == BasisStrategie.Kooperieren && aktReaktion2 == BasisStrategie.Verrat)
+            {
+                punkte1 += 9;
+                punkte2 += 0;
+                return;
+            }
+            
+            punkte1 += 6;
+            punkte2 += 6;
+        }
+
+        /// <param name="aktReaktion1"></param>
+        /// <param name="aktReaktion2"></param>
+        /// <param name="punkte1"></param>
+        /// <param name="punkte2"></param>
+        static void VerhoerMittelPunkte(int aktReaktion1, int aktReaktion2, ref int punkte1, ref int punkte2)
+        {
+            if (aktReaktion1 == BasisStrategie.Kooperieren && aktReaktion2 == BasisStrategie.Kooperieren)
+            {
+                punkte1 += 10;
+                punkte2 += 10;
+                return;
+            } 
+            if (aktReaktion1 == BasisStrategie.Verrat && aktReaktion2 == BasisStrategie.Kooperieren)
+            {
+                punkte1 += 0;
+                punkte2 += 8;
+                return;
+            }
+            if (aktReaktion1 == BasisStrategie.Kooperieren && aktReaktion2 == BasisStrategie.Verrat)
+            {
+                punkte1 += 8;
+                punkte2 += 0;
+                return;
+            }
+            
+            punkte1 += 4;
+            punkte2 += 4;
+        }
+
+        /// <param name="aktReaktion1"></param>
+        /// <param name="aktReaktion2"></param>
+        /// <param name="punkte1"></param>
+        /// <param name="punkte2"></param>
         static void VerhoerSchwerPunkte(int aktReaktion1, int aktReaktion2, ref int punkte1, ref int punkte2)
         {
             if (aktReaktion1 == BasisStrategie.Kooperieren && aktReaktion2 == BasisStrategie.Kooperieren)
@@ -178,7 +240,6 @@ namespace Gefangenendilemma
             
             punkte1 += 8;
             punkte2 += 8;
-            
         }
     }
 }
