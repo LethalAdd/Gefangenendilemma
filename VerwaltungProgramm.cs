@@ -103,9 +103,12 @@ namespace Gefangenendilemma
             //start
             int anzahlGewonneneSpieleStrat1 = 0;
             int anzahlGewonneneSpieleStrat2 = 0;
+            int siegerStehtFestInRunde = 0;
+            bool siegerStehtFest = false;
 
             for (int i = 0; i < anzahlSpiele; i++)
             {
+                int punkteDifferenz = 0;
                 for (int j = 0; j < runde; j++)
                 {
                     //beide verhören
@@ -125,12 +128,30 @@ namespace Gefangenendilemma
                             VerhoerSchwerPunkte(aktReaktion1, aktReaktion2, ref punkte1, ref punkte2);
                             break;
                     }
+                    punkteDifferenz = punkte1 - punkte2;
                     
-                    
+                    if(punkteDifferenz >= 10 || punkteDifferenz <= -10 && siegerStehtFest == false)
+                    {
+                        siegerStehtFestInRunde = siegerStehtFestInRunde + j;
+                        siegerStehtFest = true;
+                    }
+
                     //reaktion für den nächsten durchlauf merken
                     reaktion1 = aktReaktion1;
                     reaktion2 = aktReaktion2;
                 }
+                if(siegerStehtFestInRunde != 0)
+                {
+                    if( i == 0)
+                    {
+                        Console.WriteLine("Sieger steht fest ab Runde: " + (siegerStehtFestInRunde).ToString());
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sieger steht fest ab Runde: " + (siegerStehtFestInRunde/i).ToString());
+                    }
+                }
+                siegerStehtFest = false;
                 
                 if (punkte1 < punkte2)
                 {
@@ -151,6 +172,16 @@ namespace Gefangenendilemma
             }
             
             //ausgabe
+            if(siegerStehtFestInRunde == 0)
+            {
+                 Console.WriteLine("Sieger konnte nicht ermittelt werden");
+            }
+            
+            else
+            {
+                Console.WriteLine("Sieger steht zuverlässig fest ab Runde: " + (siegerStehtFestInRunde/anzahlSpiele).ToString());
+            }
+            
             Console.WriteLine($"{strategie1.Name()} hat {anzahlGewonneneSpieleStrat1} Spiele gewonnen.");
             Console.WriteLine($"{strategie2.Name()} hat {anzahlGewonneneSpieleStrat2} Spiele gewonnen.");
             if (anzahlGewonneneSpieleStrat1 > anzahlGewonneneSpieleStrat2)

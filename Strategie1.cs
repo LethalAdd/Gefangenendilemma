@@ -55,7 +55,6 @@ namespace Gefangenendilemma
             }
             Random rnd = new Random();
             int randNr = rnd.Next(0, 2);
-            Console.WriteLine("Blub");
             return randNr;
         }
     }
